@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        scanner = (ZXingScannerView)findViewById(R.id.contenedorQR);
 
     }
 
@@ -28,24 +29,19 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     public void QRScanner (View v){
 
-        scanner = new ZXingScannerView(this);
-        setContentView(scanner);
+        scanner.setVisibility(View.VISIBLE);
         scanner.setResultHandler(this);
         scanner.startCamera();
 
     }
 
-    public void onPause() {
-
-        super.onPause();
-        scanner.stopCamera();
-
-    }
 
 
     @Override
     public void handleResult(Result result) {
 
         Toast.makeText(this, result.getText(), Toast.LENGTH_SHORT).show();
+        scanner.stopCamera();
+        scanner.setVisibility(View.INVISIBLE);
     }
 }
