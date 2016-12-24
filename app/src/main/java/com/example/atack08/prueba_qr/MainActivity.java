@@ -2,6 +2,7 @@ package com.example.atack08.prueba_qr;
 
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     @Override
     public void handleResult(Result result) {
 
+
+        reproducirSonido();
+
         cadenaQR = result.getText();
         Toast.makeText(this, cadenaQR, Toast.LENGTH_SHORT).show();
         scanner.stopCamera();
@@ -76,5 +80,10 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             }
         }
 
+    }
+
+    public void reproducirSonido(){
+        MediaPlayer mp = MediaPlayer.create(this,R.raw.beep);
+        mp.start();
     }
 }

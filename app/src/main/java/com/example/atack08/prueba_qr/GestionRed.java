@@ -1,7 +1,5 @@
 package com.example.atack08.prueba_qr;
 
-import android.os.AsyncTask;
-
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
