@@ -11,17 +11,38 @@
     tools:context="com.example.atack08.prueba_qr.MainActivity"
     android:orientation="vertical">
 
-    <me.dm7.barcodescanner.zxing.ZXingScannerView android:id="@+id/contenedorQR"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <me.dm7.barcodescanner.zxing.ZXingScannerView android:id="@+id/contenedorQR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </me.dm7.barcodescanner.zxing.ZXingScannerView>
+
+        <ImageView android:id="@+id/contenedorIMG"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+    <TextView android:id="@+id/descProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-    </me.dm7.barcodescanner.zxing.ZXingScannerView>
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SCAN QR"
         android:onClick="QRScanner"/>
+
 
 </LinearLayout>
