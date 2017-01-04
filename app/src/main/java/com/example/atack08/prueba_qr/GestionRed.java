@@ -25,6 +25,7 @@ public class GestionRed extends Thread {
     public void run(){
 
         try {
+            //PONEMOS EL SERVIDOR A LA ESCUCHA PARA RECIBIR EL CODIGO QR
             Socket conexionServidor = new Socket(ipServidor,puerto);
 
             DataOutputStream salida = new DataOutputStream(conexionServidor.getOutputStream());
